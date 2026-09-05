@@ -30,11 +30,10 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
 
       - name: Instalar dependências
-        run: npm ci
+        run: npm install
 
       - name: Criar build
         run: npm run build
@@ -47,6 +46,6 @@ jobs:
         with:
           path: ./dist
 
-      - name: Colocar site no ar
+      - name: Publicar site
         id: deployment
         uses: actions/deploy-pages@v4
